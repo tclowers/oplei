@@ -2,13 +2,42 @@
 <html>
 <head>
   <title>Oplei | <%= yield(:title) %></title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= stylesheet_link_tag    "oplei", :media => "all" %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
+  <script src="http://oplei.co/scripts/soundmanager2.js"></script>
+	<script>
+		soundManager.setup({
+		  url: '/swf/',
+		  // optional: use 100% HTML5 mode where available
+		  // preferFlash: false,
+		  onready: function() {
+		    var mySound = soundManager.createSound({
+		      id: 'aSound',
+		      url: 'DaveBrubeck-TakeFive.mp3',
+		      volume: 60
+		    });
+		    mySound.play();
+		  },
+		  ontimeout: function() {
+		    // Hrmm, SM2 could not start. Missing SWF? Flash blocked? Show an error, etc.?
+		  }
+		});
+	</script>
+	<link href='http://fonts.googleapis.com/css?family=Abel|Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+	<!--<link href="oplei.css" rel="stylesheet" type="text/css">-->
 </head>
 <body>
+	<div id="menu">
+		<div id="logo"> <%= link_to 'OPLEI - PRODUCT TRAINER' %></div>
+		<div id="sound_control">SOUND: <a id="sound_on" onclick="soundManager.unmute('aSound');">ON</a> / <a id="sound_off" onclick="soundManager.mute('aSound');">OFF</a></div>
+	</div>
 
+<div id="mainBox">
 <%= yield %>
+</div>
 
 </body>
 </html>
+
