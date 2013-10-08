@@ -12,7 +12,8 @@
  *= require_tree .
  */
 html { 
-  background: gray url(city5.png) no-repeat center center fixed; 
+  background: gray;
+  backgroun-image: image-url("city5.png") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
