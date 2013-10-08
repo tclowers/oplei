@@ -8,12 +8,13 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
- *= require_self
- *= require_tree .
+
+
  */
+
 html { 
   background: gray;
-  background-image: url(<%= asset_path 'city5.png' %>);
+  background-image: url('city5.png');
   background-attachment: fixed;
   background-position: 100% 100%;
   background-repeat: no-repeat;
