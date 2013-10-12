@@ -23,6 +23,7 @@ module Oplei
 
     #Precompile soundmanager2 files
     config.assets.precompile += %w(soundmanager2.swf soundmanager2_flash9.swf)
+    config.assets.version='1.1'
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
