@@ -15,7 +15,9 @@
 //= require turbolinks
 //= require soundmanager2
 //= require_tree .
-$(window).load(function() {    
+
+/* Uncomment to use jQuery for background resize */
+/*$(window).load(function() {    
 
 	var theWindow        = $(window),
 	    $bg              = $("#bg"),
@@ -37,4 +39,4 @@ $(window).load(function() {
 	                   			
 	theWindow.resize(resizeBg).trigger("resize");
 
-});
+});*/
