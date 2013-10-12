@@ -17,7 +17,7 @@
 //= require_tree .
 
 /* Uncomment to use jQuery for background resize */
-/*$(window).load(function() {    
+$(window).load(function() {    
 
 	var theWindow        = $(window),
 	    $bg              = $("#bg"),
@@ -39,4 +39,4 @@
 	                   			
 	theWindow.resize(resizeBg).trigger("resize");
 
-});*/
+});
