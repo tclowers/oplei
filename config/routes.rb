@@ -1,5 +1,7 @@
 Oplei::Application.routes.draw do
+  get "facts/new"
   root  'static_pages#home'
+  match '/new_fact',    to: 'facts#new',    via: 'get'
   match '/help',    to: 'static_pages#help',    via: 'get'
   match '/about',   to: 'static_pages#about',   via: 'get'
   match '/contact', to: 'static_pages#contact', via: 'get'

@@ -12,6 +12,10 @@
  *= require_tree .
  */
 
+ h1 {
+	font-family: 'Open Sans Condensed', sans-serif;
+ }
+
 #bg { position: fixed; top: 0; left: 0; }
 .bgwidth { width: 100%; }
 .bgheight { height: 100%; }
@@ -79,6 +83,29 @@
 #question {position: relative; margin-right: auto; margin-left: auto; width: 80%; height: 100px; clear: both; color: dimgray; font-family: 'Abel', sans-serif; font-size: 2.6em}
 #answers {position: relative; margin-top: 36px; font-family: 'Abel', sans-serif;}
 #giveAnswer {position: relative; top: 26%; font-size: 2em; font-family: 'Abel', sans-serif;}
-.answer_button {width: 44%; height: 90px; position: relative; margin-top: 6px; margin-bottom: 6px; margin-left: 5px; margin-right: 5px; font-size: 1.6em; font-family: 'Abel', sans-serif;}
+.answer_button {
+	width: 44%;
+	height: 90px;
+	position: relative;
+	margin-top: 6px;
+	margin-bottom: 6px;
+	margin-left: 5px;
+	margin-right: 5px;
+	font-size: 1.6em;
+	font-family: 'Abel', sans-serif;
+}
+
+.option_button {
+	width: 25%;
+	height: 70px;
+	position: relative;
+	margin-top: 6px;
+	margin-bottom: 6px;
+	margin-left: 5px;
+	margin-right: 5px;
+	font-size: 1.6em;
+	font-family: 'Abel', sans-serif;
+}
+
 .teach {background: lightgray; width: 70%; height: 120px; position: relative; margin-right: auto; margin-left: auto; -moz-border-radius: 10px; border-radius: 10px;}
 .next_button {width: 20%; height: 48px; position: relative; top: 28px; float: right; margin-right: 128px; font-size: 1.8em; font-family: 'Abel', sans-serif; color: gray;}
