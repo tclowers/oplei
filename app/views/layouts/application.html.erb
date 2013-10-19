@@ -32,7 +32,7 @@
 <body>
 <%= image_tag("city5.png", id: "bg", alt: "") %>
 	<div id="menu">
-		<div id="logo"><a href='/static_pages/home' id='logotext'>OPLEI - PRODUCT TRAINER</a></div>
+		<div id="logo"><%= link_to "OPLEI - PRODUCT TRAINER", root_path, id: 'logotext' %></div>
 		<div id="sound_control">SOUND: <a id="sound_on" onclick="soundManager.unmute('aSound');">ON</a> / <a id="sound_off" onclick="soundManager.mute('aSound');">OFF</a></div>
 	</div>
 

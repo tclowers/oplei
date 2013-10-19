@@ -11,6 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20131018141118) do
+
+  create_table "facts", force: true do |t|
+    t.string   "question"
+    t.string   "answer"
+    t.string   "type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "facts", ["question"], name: "index_facts_on_question", unique: true, using: :btree
 
 end
