@@ -12,6 +12,20 @@
  *= require_tree .
  */
 
+/* mixins, variables, etc. */
+
+$grayMediumLight: #eaeaea;
+
+@mixin box_sizing {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+	font-family: sans-serif;
+}
+
  h1 {
 	font-family: 'Open Sans Condensed', sans-serif;
  }
@@ -19,7 +33,14 @@
 #bg { position: fixed; top: 0; left: 0; }
 .bgwidth { width: 100%; }
 .bgheight { height: 100%; }
-#menu {top: 0; width: 100%; height: 32px; background: black; opacity: 0.72;}
+#menu {
+	top: 0;
+	width: 100%;
+	height: 32px;
+	background: black;
+	opacity: 0.72;
+}
+
 #logo {
 	width:30%;
 	height: 100%;
@@ -29,6 +50,7 @@
 	position: relative;
 	text-decoration:none;
 }
+
 #logotext {
 	color: white;
 	font-family: 'Open Sans Condensed', sans-serif;
@@ -36,6 +58,7 @@
 	top: 4px;
 	text-decoration: none;
 }
+
 #sound_control {
 	width: 10%;
 	height: 32px;
@@ -49,11 +72,17 @@
 	text-align: center;
 	vertical-align: center;
 }
+
 #sound_control:hover {cursor: pointer;}
+
 #sound_off {color: white;}
+
 #sound_off:hover {color: red;}
+
 #sound_on {color: white;}
+
 #sound_on:hover {color: green;}
+
 #mainBox {
 	background:#ffffff;
 	opacity:0.8;
@@ -67,6 +96,7 @@
 	margin-right: auto;
 	padding: 10px 20px;
 }
+
 #quizBox {background:#ffffff; opacity:0.8; text-align: center; width: 800px; height: 500px; -moz-border-radius: 10px; border-radius: 10px; position: relative; top: 50px; margin-left: auto; margin-right: auto; padding: 10px;}
 /*#mainBox {border-width: 1; border: solid; border-color: dimgray; background:#ffffff; opacity:0.8; text-align: center; width: 800px; height: 500px; -moz-border-radius: 10px; border-radius: 10px; position: relative; top: 50px; margin-left: auto; margin-right: auto;}*/
 #left_column {text-align: center; width: 33%; height: 78px; float: left}
@@ -107,5 +137,104 @@
 	font-family: 'Abel', sans-serif;
 }
 
-.teach {background: lightgray; width: 70%; height: 120px; position: relative; margin-right: auto; margin-left: auto; -moz-border-radius: 10px; border-radius: 10px;}
-.next_button {width: 20%; height: 48px; position: relative; top: 28px; float: right; margin-right: 128px; font-size: 1.8em; font-family: 'Abel', sans-serif; color: gray;}
+.teach {
+	background: lightgray;
+	width: 70%;
+	height: 120px;
+	position: relative;
+	margin-right: auto;
+	margin-left: auto;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+}
+
+.next_button {
+	width: 20%;
+	height: 48px;
+	position: relative;
+	top: 28px;
+	float: right;
+	margin-right: 128px;
+	font-size: 1.8em;
+	font-family: 'Abel', sans-serif;
+	color: gray;
+}
+
+/* Facts index */
+
+.facts {
+  list-style: none;
+  margin: 0;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-top: 1px solid lightgray;
+    &:last-child {
+      border-bottom: 1px solid lightgray;
+    }
+  }
+}
+
+/* forms */
+
+input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
+  width: 80%;
+  margin-bottom: 15px;
+  @include box_sizing;
+  font-size: 1.8em;
+}
+
+label {
+	font-size: 1.4em;
+	font-family: sans-serif;
+}
+
+input {
+  height: auto !important;
+}
+
+#error_explanation {
+  color: #f00;
+  ul {
+    list-style: none;
+    margin: 0 0 18px 0;
+  }
+}
+
+.field_with_errors {
+  @extend .control-group;
+  @extend .error;
+}
+
+.fact_element {
+	width: 100%;
+	right: 10px;
+	/*float: left;*/
+}
+
+.fact_inputs {
+	width: 70%;
+	/*float: left;*/
+	position: relative;
+	/*text-align: right;*/
+}
+
+.fact_button {
+	text-align: center;
+	position: relative;
+	background-color: darkgray;
+	  @include box_sizing;
+
+}
+
+
+/* miscellaneous */
+
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  @include box_sizing;
+}

@@ -1,0 +1,11 @@
+<% provide(:title, 'All facts') %>
+<h1>All facts</h1>
+
+<ul class="facts">
+  <% @facts.each do |fact| %>
+    <li>
+      <span id="question_item">Q: <%= fact.question %></span> <span id="answer_item">A: <%= fact.answer %> <%= link_to 'view', fact %></span> 
+    </li>
+  <% end %>
+</ul>
+<%= button_to "New Fact", new_fact_path, class: "option_button", method: :get %>

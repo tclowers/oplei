@@ -1,4 +1,31 @@
 <% provide(:title, 'New Fact') %>
 <h1>Enter New Fact</h1>
 <p>Enter details below:</p>
+<div>
+  <div class="fact_inputs">
+    <%= form_for(@fact) do |f| %>
+      <%= render 'shared/error_messages' %>
+
+    	<div class="fact_element">
+        <div>
+	       <%= f.label :question %>
+        </div>
+        <div>
+	       <%= f.text_field :question %>
+        </div>
+      </div>
+      <div class="fact_element">
+        <div>
+	       <%= f.label :answer %>
+        </div>
+        <div>
+	       <%= f.text_field :answer %>
+        </div>
+	   </div>
+
+      <%= f.submit "Enter fact", class: "option_button fact_button" %>
+    <% end %>
+      <%= button_to "Cancel", facts_path, class: "option_button", method: :get %>
+  </div>
+</div>
 
