@@ -22,7 +22,7 @@ module Oplei
     # config.time_zone = 'Central Time (US & Canada)'
 
     #Precompile soundmanager2 files
-    config.assets.precompile += %w(soundmanager2.swf soundmanager2_flash9.swf)
+    config.assets.precompile += %w(soundmanager2.swf soundmanager2_flash9.swf *.png *.jpg *.jpeg *.gif)
     config.assets.version='1.2'
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.

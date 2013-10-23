@@ -79,34 +79,56 @@ html {
 	color: white;
 	text-align: center;
 	vertical-align: center;
+	&:hover {
+		cursor: pointer;
+	}
 }
 
-#sound_control:hover {cursor: pointer;}
+#sound_off {
+	color: white;
+	&:hover {
+		color: red;
+	}
+}
 
-#sound_off {color: white;}
-
-#sound_off:hover {color: red;}
-
-#sound_on {color: white;}
-
-#sound_on:hover {color: green;}
+#sound_on {
+	color: white;
+	&:hover {
+		color: green;
+	}
+}
 
 #mainBox {
 	background:#ffffff;
-	opacity:0.8;
+	opacity:0.86;
 	width: 1050px;
 	min-height: 500px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	position: relative;
+	top: 60px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 10px 20px;
+}
+
+#quizBox {
+	background:#ffffff;
+	opacity:0.8;
+	text-align: center;
+	width: 800px;
+	height: 500px;
 	-moz-border-radius: 10px;
 	border-radius: 10px;
 	position: relative;
 	top: 50px;
 	margin-left: auto;
 	margin-right: auto;
-	padding: 10px 20px;
+	padding: 10px;
 }
 
-#quizBox {background:#ffffff; opacity:0.8; text-align: center; width: 800px; height: 500px; -moz-border-radius: 10px; border-radius: 10px; position: relative; top: 50px; margin-left: auto; margin-right: auto; padding: 10px;}
 /*#mainBox {border-width: 1; border: solid; border-color: dimgray; background:#ffffff; opacity:0.8; text-align: center; width: 800px; height: 500px; -moz-border-radius: 10px; border-radius: 10px; position: relative; top: 50px; margin-left: auto; margin-right: auto;}*/
+
 #left_column {text-align: center; width: 33%; height: 78px; float: left}
 #score {font-size: 1.8em; font-family: 'Open Sans Condensed', sans-serif; position: relative; top: 6px; color: gray}
 #bonus {font-size: 3em; font-family: 'Open Sans Condensed', sans-serif; position: relative; top: 0; color: lightgray; float: right}
@@ -133,17 +155,6 @@ html {
 	font-family: 'Abel', sans-serif;
 }
 
-.option_button {
-	width: 25%;
-	height: 70px;
-	position: relative;
-	margin-top: 6px;
-	margin-bottom: 6px;
-	margin-left: 5px;
-	margin-right: 5px;
-	font-size: 1.6em;
-	font-family: 'Abel', sans-serif;
-}
 
 .teach {
 	background: lightgray;
@@ -154,18 +165,6 @@ html {
 	margin-left: auto;
 	-moz-border-radius: 10px;
 	border-radius: 10px;
-}
-
-.next_button {
-	width: 20%;
-	height: 48px;
-	position: relative;
-	top: 28px;
-	float: right;
-	margin-right: 128px;
-	font-size: 1.8em;
-	font-family: 'Abel', sans-serif;
-	color: gray;
 }
 
 /* Facts index */
@@ -185,28 +184,3 @@ html {
 
 
 
-#error_explanation {
-  color: #f00;
-  ul {
-    list-style: none;
-    margin: 0 0 18px 0;
-  }
-}
-
-.field_with_errors {
-  @extend .control-group;
-  @extend .error;
-}
-
-
-
-
-/* miscellaneous */
-
-.debug_dump {
-  clear: both;
-  float: left;
-  width: 100%;
-  margin-top: 45px;
-  @include box_sizing;
-}

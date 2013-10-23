@@ -8,7 +8,7 @@
   box-sizing: border-box;
 }
 
-#question_item {
+/*#question_item {
 	width: 40%;
 	position: relative;
 }
@@ -18,7 +18,7 @@
 	position: relative;
 	left: 10px;
 	right: 10px;
-}
+}*/
 
 .fact_element {
 	width: 100%;
@@ -27,7 +27,7 @@
 }
 
 .fact_inputs {
-	width: 70%;
+	width: 100%;
 	/*float: left;*/
 	position: relative;
 	/*text-align: right;*/
@@ -41,11 +41,16 @@
 
 }
 
+.new_fact {
+	position: relative;
+	top: 10px;
+}
+
 /* forms */
 
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
-  width: 80%;
+  width: 100%;
   margin-bottom: 15px;
   @include box_sizing;
   font-size: 1.8em;
