@@ -1,18 +1,10 @@
-<!-- Switch between fact and user data so that we can reuse code -->
-<!-- Shouldn't this control statement go in a controller somewhere? -->
-<%if @fact %>
-  <% @data = @fact %>
-<% elsif @user %>
-  <% @data = @user %>
-<% end %>
-  
-<% if @data.errors.any? %>
+<% if object.errors.any? %>
   <div id="error_explanation">
     <div class="alert alert-error">
-      The form contains <%= pluralize(@data.errors.count, "error") %>.
+      The form contains <%= pluralize(object.errors.count, "error") %>.
     </div>
     <ul>
-    <% @data.errors.full_messages.each do |msg| %>
+    <% object.errors.full_messages.each do |msg| %>
       <li>* <%= msg %></li>
     <% end %>
     </ul>
