@@ -6,9 +6,35 @@
         <ul class="nav pull-right">
           <li><%= link_to "Home",    root_path %></li>
           <li><%= link_to "Help",    help_path %></li>
-          <li><%= link_to "Sign in", '#' %></li>
-          <li><a id="sound_on" onclick="soundManager.unmute('aSound');">Sound On</a></li>
-          <li><a id="sound_off" onclick="soundManager.mute('aSound');">Sound Off</a></li>
+          <% if signed_in? %>
+            <li><%= link_to "Facts", facts_path %></li>
+            <li id="fat-menu" class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                Account <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <li><%= link_to "Profile", current_user %></li>
+                <li><%= link_to "Settings", '#' %></li>
+                <li class="divider"></li>
+                <li>
+                  <%= link_to "Sign out", signout_path, method: "delete" %>
+                </li>
+              </ul>
+            </li>
+          <% else %>
+            <li><%= link_to "Sign in", signin_path %></li>
+          <% end %>
+
+
+          <li id="f-menu" class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              Sound <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a id="sound_on" onclick="soundManager.unmute('aSound');">Sound On</a></li>
+              <li><a id="sound_off" onclick="soundManager.mute('aSound');">Sound Off</a></li>
+            </ul>
+          </li>
         </ul>
       </nav>
     </div>

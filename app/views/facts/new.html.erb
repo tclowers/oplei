@@ -4,7 +4,7 @@
   <div class="span6 offset3">
     <p>Enter details below:</p>
     <%= form_for(@fact) do |f| %>
-      <%= render 'shared/error_messages' %>
+      <%= render 'shared/error_messages', object: @fact %>
 
     	<div class="fact_element">
         <div>
