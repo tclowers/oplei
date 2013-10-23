@@ -2,6 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@mixin box_sizing {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
 #question_item {
 	width: 40%;
 	position: relative;
@@ -12,6 +18,46 @@
 	position: relative;
 	left: 10px;
 	right: 10px;
+}
+
+.fact_element {
+	width: 100%;
+	right: 10px;
+	/*float: left;*/
+}
+
+.fact_inputs {
+	width: 70%;
+	/*float: left;*/
+	position: relative;
+	/*text-align: right;*/
+}
+
+.fact_button {
+	text-align: center;
+	position: relative;
+	background-color: darkgray;
+	  @include box_sizing;
+
+}
+
+/* forms */
+
+input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
+  width: 80%;
+  margin-bottom: 15px;
+  @include box_sizing;
+  font-size: 1.8em;
+}
+
+label {
+	font-size: 1.4em;
+	font-family: sans-serif;
+}
+
+input {
+  height: auto !important;
 }
 
 
