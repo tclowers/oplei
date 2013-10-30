@@ -1,0 +1,13 @@
+<li>
+	<i class="fa fa-user fa-2x"></i>
+	<%= link_to user.name, user %>
+	<% if user.admin? %>
+		ADMIN
+	<% else %>
+		USER
+	<% end %>
+	<% if current_user.admin? && !current_user?(user) %>
+		| <%= link_to "delete", user, method: :delete,
+		data: { confirm: "You sure?" } %>
+	<% end %>
+</li>

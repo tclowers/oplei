@@ -1,6 +1,11 @@
 <% provide(:title, 'Home') %>
 <h1>Oplei Product Trainer</h1>
 <p>This is the home page.</p>
-<%= button_to "Sign up", signup_path, class: "btn btn-inverse btn-large", method: :get %>
-<%= button_to "New Fact", new_fact_path, class: "btn btn-inverse btn-large", method: :get %>
-<%= button_to "View Facts", facts_path, class: "btn btn-inverse btn-large", method: :get %>
+<% if signed_in? %>
+	<%= render 'static_pages/options' %>
+	<%#= button_to "New Fact", new_fact_path, class: "btn btn-inverse btn-large", method: :get %>
+	<%#= button_to "View Facts", facts_path, class: "btn btn-inverse btn-large", method: :get %>
+<% else %>
+	<%= render 'static_pages/signup' %>
+	<%#= button_to "Sign up", signup_path, class: "btn btn-inverse btn-large", method: :get %>
+<% end %>
