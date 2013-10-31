@@ -1,13 +1,15 @@
 require 'spec_helper'
 
 describe Fact do
-	before { @fact = Fact.new(question: "Who is Peccinini", answer: "The founder of Wall Street English") }
+	before { @fact = Fact.new(question: "Who is Peccinini?",
+										answer: "The founder of Wall Street English",
+										question_type: "who is") }
 
 	subject { @fact }
 
 	it { should respond_to(:question) }
 	it { should respond_to(:answer) }
-	it { should respond_to(:type) }
+	it { should respond_to(:question_type) }
 
 	it { should be_valid }
 

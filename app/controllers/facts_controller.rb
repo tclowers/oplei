@@ -1,7 +1,8 @@
 class FactsController < ApplicationController
+	before_action :check_for_cancel, :only => [:create]
 
 	def index
-		@facts = Fact.all
+		@facts = Fact.paginate(page: params[:page])
 	end
 
 	def show
@@ -25,6 +26,13 @@ class FactsController < ApplicationController
 	private
 
 		def fact_params
-			params.require(:fact).permit(:question, :answer)
+			params.require(:fact).permit(:question, :answer, :question_type)
 		end
+
+		def check_for_cancel
+		  if params[:commit] == "Cancel"
+		    redirect_to facts_path
+		  end
+		end
+
 end

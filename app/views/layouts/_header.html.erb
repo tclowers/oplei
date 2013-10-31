@@ -5,7 +5,6 @@
       <nav>
         <ul class="nav pull-right">
           <li><%= link_to "Home",    root_path %></li>
-          <li><%= link_to "Help",    help_path %></li>
           <% if signed_in? %>
           <li><%= link_to "Users", users_path %></li>
           <li id="fat-menu" class="dropdown">
@@ -34,14 +33,15 @@
             <li><%= link_to "Sign in", signin_path %></li>
           <% end %>
 
+          <li><%= link_to "Help",    help_path %></li>
 
           <li id="f-menu" class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              Sound <b class="caret"></b>
+              <i class="fa fa-volume-up"></i>
             </a>
             <ul class="dropdown-menu">
-              <li><a id="sound_on" onclick="soundManager.unmute('aSound');">Sound On</a></li>
-              <li><a id="sound_off" onclick="soundManager.mute('aSound');">Sound Off</a></li>
+              <li><a id="sound_on" onclick="soundManager.unmute('aSound');"><i class="fa fa-volume-up"></i>  Sound On</a></li>
+              <li><a id="sound_off" onclick="soundManager.mute('aSound');"><i class="fa fa-volume-off small-ico"></i>  Sound Off</a></li>
             </ul>
           </li>
         </ul>

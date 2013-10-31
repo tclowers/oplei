@@ -21,11 +21,34 @@
         <div>
 	       <%= f.text_field :answer %>
         </div>
+        <div>
+         <%= f.label :question_type %>
+        </div>
+        <div>
+          <%= f.select(:question_type, options_for_select([['What is__?', 'what is'],
+                                                       ['What are__?', 'what are'],
+                                                       ['Who is__?', 'who is'],
+                                                       ['Who are__?', 'who are'],
+                                                       ['Where is__?', 'where is'],
+                                                       ['Where are__?', 'where are'],
+                                                       ['When is__?', 'when is'],
+                                                       ['When are__?', 'when are'],
+                                                       ['When will__?', 'when will'],
+                                                       ['When was__?', 'when was'],
+                                                       ['How__?', 'how'],
+                                                       ['How many__?', 'how many'],
+                                                       ['How much money__?', 'how much money'],
+                                                       ['How often__?', 'how often'],
+                                                       ['How big__?', 'how big'],
+                                                       ['How tall__?', 'how tall'],
+                                                       ['How long__last?', 'how long time'],
+                                                       ['What percent__?', 'what percent']]), {}, { :class => 'form-control input-large'}) %>
+        </div>
 	   </div>
 
       <%= f.submit "Enter fact", class: "btn btn-inverse btn-large" %>
+      <%= f.submit "Cancel", class: "btn btn-default btn-large" %>
     <% end %>
-    <%= button_to "Cancel", facts_path, class: "btn btn-default btn-large", method: :get %>
   </div>
 </div>
 

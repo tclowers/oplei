@@ -1,11 +1,32 @@
 <% provide(:title, 'All facts') %>
 <h1>All facts</h1>
 
-<ul class="facts">
+<%= will_paginate %>
+
+<table class="table table-hover">
+	<thead>
+		<tr>
+		   <th>Question</th>
+		   <th>Answer</th>
+		   <th>Type</th>
+		   <th>Options</th>
+		</tr>
+	</thead>
+	<tbody>
+
   <% @facts.each do |fact| %>
-    <li>
-      <span id="question_item">Q: <%= fact.question %></span> <span id="answer_item">A: <%= fact.answer %> <%= link_to 'view', fact %></span> 
-    </li>
+	<tr>
+	      <td><%= fact.question %></td>
+	      <td><%= fact.answer %></td>
+	      <td><%= fact.question_type %></td>
+	      <td><%= link_to 'view', fact %></td>
+	</tr>
   <% end %>
-</ul>
+
+  </tbody>
+</table>
+
+<%= will_paginate %>
+
+
 <%= button_to "New Fact", new_fact_path, class: "btn btn-inverse btn-large new_fact", method: :get %>

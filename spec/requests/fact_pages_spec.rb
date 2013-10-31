@@ -19,7 +19,7 @@ let(:base_title) { "Oplei" }
 
 		it "should list each fact" do
 			Fact.all.each do |fact|
-			  expect(page).to have_selector('li', text: fact.question)
+			  expect(page).to have_selector('div', text: fact.question)
 			end
 		end
 	end
@@ -53,8 +53,9 @@ let(:base_title) { "Oplei" }
 
 	   describe "with valid information" do
 	      before do
-	        fill_in "Question",         with: "What is an Encounter?"
-	        fill_in "Answer",        with: "A type of class"
+	        fill_in "Question",  with: "What is an Encounter?"
+	        fill_in "Answer", with: "A type of class"
+	        select("What is__?", :from => "fact_question_type")
 	      end
 
 	      it "should create a fact" do

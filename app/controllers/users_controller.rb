@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
 	before_action :signed_in_user, only: [:index, :edit, :update, :destroy]
+	before_action :check_for_cancel, :only => [:create, :update]
 	before_action :correct_user,   only: [:edit, :update]
 	before_action :admin_user,     only: :destroy
 
@@ -68,4 +69,11 @@ class UsersController < ApplicationController
 	def admin_user
 		redirect_to(root_url) unless current_user.admin?
 	end
+
+	def check_for_cancel
+	  if params[:commit] == "Cancel"
+	    redirect_to root_path
+	  end
+	end
+
 end

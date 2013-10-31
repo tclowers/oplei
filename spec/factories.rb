@@ -2,6 +2,7 @@ FactoryGirl.define do
 	factory :fact do
 		question     "Who is Peccinini?"
 		answer    "The founder of Wall Street English"
+		question_type	"who is"
 	end
 
 	factory :user do
