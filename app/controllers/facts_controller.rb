@@ -23,6 +23,12 @@ class FactsController < ApplicationController
 		end
 	end
 
+	def destroy
+		Fact.find(params[:id]).destroy
+		flash[:success] = "Fact deleted."
+		redirect_to facts_url
+	end
+
 	private
 
 		def fact_params

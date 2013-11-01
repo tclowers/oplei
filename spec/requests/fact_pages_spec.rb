@@ -22,6 +22,26 @@ let(:base_title) { "Oplei" }
 			  expect(page).to have_selector('div', text: fact.question)
 			end
 		end
+
+		describe "delete links" do
+
+			it { should_not have_link('delete') }
+
+			describe "as an admin user" do
+				let(:admin) { FactoryGirl.create(:admin) }
+					before do
+					sign_in admin
+					visit facts_path
+				end
+
+				it { should have_link('delete', href: fact_path(Fact.first)) }
+				it "should be able to delete a fact" do
+					expect do
+						click_link('delete', match: :first)
+					end.to change(Fact, :count).by(-1)
+				end
+			end
+		end
 	end
 
 	describe "show fact page" do
@@ -31,6 +51,26 @@ let(:base_title) { "Oplei" }
 		it { should have_title(fact.question) }
 		it { should have_content(fact.question) }
 		it { should have_content(fact.answer) }
+
+		describe "delete button" do
+
+			it { should_not have_link('delete') }
+
+			describe "as an admin user" do
+				let(:admin) { FactoryGirl.create(:admin) }
+					before do
+					sign_in admin
+					visit fact_path(Fact.first)
+				end
+
+				it { should have_link('delete', href: fact_path(Fact.first)) }
+				it "should be able to delete a fact" do
+					expect do
+						click_link('delete', match: :first)
+					end.to change(Fact, :count).by(-1)
+				end
+			end
+		end
 	end
 
 	describe "new fact page" do

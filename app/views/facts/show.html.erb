@@ -8,3 +8,12 @@
 <div>
 	Type: <%= @fact.question_type %>
 </div>
+<div class="row">
+	<div class="span4">
+		<%= link_to "Back to facts", facts_path, class: "btn btn-inverse btn-large" %>
+		<% if current_user && current_user.admin? %>
+			<%= link_to "delete", @fact, method: :delete,
+			data: { confirm: "You sure?" }, class: "btn btn-danger btn-large" %>
+		<% end %>
+	</div>
+</div>

@@ -14,14 +14,7 @@
 	</thead>
 	<tbody>
 
-  <% @facts.each do |fact| %>
-	<tr>
-	      <td><%= fact.question %></td>
-	      <td><%= fact.answer %></td>
-	      <td><%= fact.question_type %></td>
-	      <td><%= link_to 'view', fact %></td>
-	</tr>
-  <% end %>
+	<%= render @facts %>
 
   </tbody>
 </table>

@@ -1,0 +1,12 @@
+	<tr>
+	      <td><%= fact.question %></td>
+	      <td><%= fact.answer %></td>
+	      <td><%= fact.question_type %></td>
+	      <td>
+	      	<% if current_user && current_user.admin? %>
+					<%= link_to "delete", fact, method: :delete,
+					data: { confirm: "You sure?" } %> | 
+				<% end %>
+				<%= link_to 'view', fact %>
+			</td>
+	</tr>
