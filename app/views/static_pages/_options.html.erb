@@ -1,2 +1,17 @@
-<%= button_to "New Fact", new_fact_path, class: "btn btn-inverse btn-large", method: :get %>
-<%= button_to "View Facts", facts_path, class: "btn btn-inverse btn-large", method: :get %>
+<div class="row homerow">
+	<div class="span3 offset2">
+		<%= link_to users_path, class: 'frontlink', method: :get do %>
+			<i class='fa fa-group fa-2x'></i> Users
+		<% end %>
+	</div>
+	<div class="span3">
+		<%= link_to facts_path, class: 'frontlink', method: :get do %>
+			<i class='fa fa-book fa-2x'></i> Facts
+		<% end %>
+	</div>
+	<div class="span3">
+		<%= link_to '#', class: 'frontlink', method: :get do %>
+			<i class='fa fa-question-circle fa-2x'></i> Quizzes
+		<% end %>
+	</div>
+</div>
