@@ -1,17 +1,26 @@
 <div class="row homerow">
 	<div class="span3 offset2">
-		<%= link_to users_path, class: 'frontlink', method: :get do %>
-			<i class='fa fa-group fa-2x'></i> Users
-		<% end %>
+		<div class="btn frontbutton">
+			<%= link_to users_path, class: 'frontlink', method: :get do %>
+				<div class='text-center fronticon'><i class='fa fa-group fa-2x'></i></div>
+				<div class='text-center'>Users</div>
+			<% end %>
+		</div>
 	</div>
 	<div class="span3">
-		<%= link_to facts_path, class: 'frontlink', method: :get do %>
-			<i class='fa fa-book fa-2x'></i> Facts
-		<% end %>
+		<div class="btn frontbutton">
+			<%= link_to facts_path, class: 'frontlink', method: :get do %>
+				<div class='text-center fronticon'><i class='fa fa-book fa-2x'></i></div>
+				<div class='text-center'>Facts</div>
+			<% end %>
+		</div>
 	</div>
 	<div class="span3">
-		<%= link_to '#', class: 'frontlink', method: :get do %>
-			<i class='fa fa-question-circle fa-2x'></i> Quizzes
-		<% end %>
+		<div class="btn frontbutton">
+			<%= link_to '#', class: 'frontlink', method: :get do %>
+				<div class='text-center fronticon'><i class='fa fa-question-circle fa-2x'></i></div>
+				<div class='text-center'>Quizzes</div>
+			<% end %>
+		</div>
 	</div>
 </div>

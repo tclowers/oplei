@@ -15,4 +15,8 @@ FactoryGirl.define do
 			admin true
 		end
 	end
+
+	factory :exam do
+		user :user
+	end
 end

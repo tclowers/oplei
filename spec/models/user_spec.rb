@@ -17,6 +17,7 @@ describe User do
 	it { should respond_to(:remember_token) }
 	it { should respond_to(:authenticate) }
 	it { should respond_to(:admin) }
+	it { should respond_to(:exams) }
 
 	it { should be_valid }
 	it { should_not be_admin }
@@ -112,6 +113,30 @@ describe User do
 	describe "remember token" do
 		before { @user.save }
 		its(:remember_token) { should_not be_blank }
+	end
+
+	describe "exam associations" do
+
+		before { @user.save }
+		let!(:older_exam) do
+			FactoryGirl.create(:exam, user: @user, created_at: 1.day.ago)
+		end
+		let!(:newer_exam) do
+			FactoryGirl.create(:exam, user: @user, created_at: 1.hour.ago)
+		end
+
+		it "should have the right exams in the right order" do
+			expect(@user.exams.to_a).to eq [newer_exam, older_exam]
+		end
+
+		it "should destroy associated exams" do
+			exams = @user.exams.to_a
+			@user.destroy
+			expect(exams).not_to be_empty
+			exams.each do |exam|
+				expect(Exam.where(id: exam.id)).to be_empty
+			end
+		end
 	end
 
 end

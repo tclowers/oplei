@@ -15,5 +15,13 @@ namespace :db do
                    password: password,
                    password_confirmation: password)
     end
+
+    50.times do |n|
+      question = "Who is User#{n+1}?"
+      answer = "The #{n+1}th user"
+      Fact.create!(question: question,
+                   answer: answer,
+                   question_type: "who is")
+    end
   end
 end

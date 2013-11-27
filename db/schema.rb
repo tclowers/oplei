@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131030154850) do
+ActiveRecord::Schema.define(version: 20131127092002) do
+
+  create_table "exams", force: true do |t|
+    t.integer  "user_id"
+    t.datetime "completed"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "exams", ["user_id"], name: "index_exams_on_user_id", using: :btree
 
   create_table "facts", force: true do |t|
     t.string   "question"
@@ -22,6 +31,24 @@ ActiveRecord::Schema.define(version: 20131030154850) do
   end
 
   add_index "facts", ["question"], name: "index_facts_on_question", unique: true, using: :btree
+
+  create_table "problems", force: true do |t|
+    t.integer  "exam_id"
+    t.integer  "fact_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "questions", force: true do |t|
+    t.integer  "exam_id"
+    t.integer  "fact_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "questions", ["exam_id", "fact_id"], name: "index_questions_on_exam_id_and_fact_id", unique: true, using: :btree
+  add_index "questions", ["exam_id"], name: "index_questions_on_exam_id", using: :btree
+  add_index "questions", ["fact_id"], name: "index_questions_on_fact_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "name"

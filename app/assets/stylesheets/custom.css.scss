@@ -82,10 +82,6 @@ p {
   }
 }
 
-.small-ico {
-  padding-right: 0.6em;
-}
-
 .frontlink {
   color: dimgray;
   font-size: 2.2em;
@@ -93,6 +89,15 @@ p {
   &:hover {
     text-decoration: none;
   }
+}
+
+.fronticon {
+  position: relative;
+  bottom: 10px;
+}
+
+.frontbutton {
+  padding: 30px 50px;
 }
 
 .homerow {

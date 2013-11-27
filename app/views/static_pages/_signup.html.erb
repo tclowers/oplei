@@ -1,8 +1,20 @@
-<div class="row">
-	<div class="span2">
-		<%= button_to "Sign up", signup_path, class: "btn btn-inverse btn-large", method: :get %>
+<div class="row homerow">
+	<div class="span5 offset3">
+		<div class="btn frontbutton">
+			<%= link_to signup_path, class: 'frontlink', method: :get do %>
+				<div class='text-center fronticon'><i class='fa fa-male fa-2x'></i></div>
+				<div class='text-center'>Sign up</div>
+			<% end %>
+		</div>
+		<%#= button_to "Sign up", signup_path, class: "btn btn-inverse btn-large", method: :get %>
 	</div>
-	<div class="span10">
-		<%= button_to "Sign in", signin_path, class: "btn btn-primary btn-large", method: :get %>
+	<div class="span4">
+		<div class="btn frontbutton">
+			<%= link_to signin_path, class: 'frontlink', method: :get do %>
+				<div class='text-center fronticon'><i class='fa fa-sign-in fa-2x'></i></div>
+				<div class='text-center'>Sign in</div>
+			<% end %>
+		</div>
+		<%#= button_to "Sign in", signin_path, class: "btn btn-primary btn-large", method: :get %>
 	</div>
 </div>
