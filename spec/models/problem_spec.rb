@@ -16,4 +16,14 @@ describe Problem do
 		its(:exam) { should eq exam }
 		its(:fact) { should eq fact }
 	end
+
+	describe "when exam id is not present" do
+		before { problem.exam_id = nil }
+		it { should_not be_valid }
+	end
+
+	describe "when fact id is not present" do
+		before { problem.fact_id = nil }
+		it { should_not be_valid }
+	end
 end
