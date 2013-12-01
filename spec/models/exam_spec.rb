@@ -12,6 +12,8 @@ describe Exam do
 
 	it { should be_valid }
 
+	#its(:facts) { should have_at_least(10).items}
+
 	describe "when user_id is not present" do
 		before { @exam.user_id = nil }
 		it { should_not be_valid }

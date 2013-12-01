@@ -1,4 +1,5 @@
 class Exam < ActiveRecord::Base
+	#after_save :assign_facts
 	belongs_to :user
 	default_scope -> { order('created_at DESC') }
 	validates :user_id, presence: true
@@ -12,5 +13,14 @@ class Exam < ActiveRecord::Base
 	def assign!(fact)
 		problems.create!(fact_id: fact.id)
 	end
+
+	private
+
+		def assign_facts
+			facts = Fact.all.sample(10)
+			facts.each do |fact|
+				self.assign!(fact)
+			end
+		end
 
 end

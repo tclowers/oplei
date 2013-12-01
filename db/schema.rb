@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131127092002) do
+ActiveRecord::Schema.define(version: 20131130065136) do
 
   create_table "exams", force: true do |t|
     t.integer  "user_id"
@@ -38,17 +38,6 @@ ActiveRecord::Schema.define(version: 20131127092002) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  create_table "questions", force: true do |t|
-    t.integer  "exam_id"
-    t.integer  "fact_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "questions", ["exam_id", "fact_id"], name: "index_questions_on_exam_id_and_fact_id", unique: true, using: :btree
-  add_index "questions", ["exam_id"], name: "index_questions_on_exam_id", using: :btree
-  add_index "questions", ["fact_id"], name: "index_questions_on_fact_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "name"

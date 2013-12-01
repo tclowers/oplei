@@ -1,0 +1,17 @@
+	<tr>
+			<td><%= exam.id %></td>
+	      <td><%= exam.user.name %></td>
+	      <% if exam.completed? %>
+	      	<td class="text-success"><%= exam.completed.strftime("%b %d, %Y - %H:%M:%S") %></td>
+	      <% else %>
+	      	<td class="text-error">no</td>
+	      <% end %>
+	      <td><%= exam.created_at.strftime("%b %d, %Y - %H:%M:%S") %></td>
+	      <td>
+	      	<% if current_user && current_user.admin? %>
+					<%= link_to "delete", exam, method: :delete,
+					data: { confirm: "You sure?" } %> | 
+				<% end %>
+				<%= link_to 'view', exam %>
+			</td>
+	</tr>

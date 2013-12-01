@@ -1,7 +1,7 @@
-class ExamssController < ApplicationController
-  before_action :signed_in_user
+class ExamsController < ApplicationController
 
   def index
+  	@exams = Exam.paginate(page: params[:page])
   end
 
   def create
