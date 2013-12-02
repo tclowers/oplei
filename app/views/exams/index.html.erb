@@ -1,7 +1,7 @@
-<% provide(:title, 'All Exams') %>
-<h1>All Exams</h1>
+<% provide(:title, 'All exams') %>
+<h1>All exams</h1>
 
-<%= button_to "New Exam", new_exam_path, class: "btn btn-inverse btn-large new_fact", method: :get %>
+<%= button_to "New exam", exams_path, class: "btn btn-inverse btn-large new_fact", method: :post %>
 
 <%= will_paginate %>
 

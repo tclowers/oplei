@@ -1,5 +1,5 @@
 class Exam < ActiveRecord::Base
-	#after_save :assign_facts
+	#after_create :assign_facts
 	belongs_to :user
 	default_scope -> { order('created_at DESC') }
 	validates :user_id, presence: true

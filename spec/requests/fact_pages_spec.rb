@@ -18,8 +18,8 @@ let(:base_title) { "Oplei" }
 		it { should have_content('All facts') }
 
 		it "should list each fact" do
-			Fact.all.each do |fact|
-			  expect(page).to have_selector('div', text: fact.question)
+			Fact.paginate(page: 1).each do |fact|
+			  expect(page).to have_selector('td', text: fact.question)
 			end
 		end
 
