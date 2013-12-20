@@ -4,6 +4,11 @@ class ExamsController < ApplicationController
   	@exams = Exam.paginate(page: params[:page])
   end
 
+  def show
+	@exam = Exam.find(params[:id])
+	@facts = @exam.facts
+  end
+
   def create
 	@exam = current_user.exams.build()
 	@exam.save

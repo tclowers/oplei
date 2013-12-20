@@ -58,4 +58,22 @@ describe "ExamPages" do
         expect { click_button submit }.to change(Exam, :count).by(1)
       end
 	end
+
+	describe "show exam page" do
+		#let(:exam)  { FactoryGirl.create(:exam) }
+		before do
+			exam = user.exams.create
+			visit exam_path(exam)
+		end
+
+		it { should have_title('Exam') }
+		it { should have_content(user.name) }
+		#it { should have_content(exam.fact.question) }
+
+		#it "should list each fact" do
+		#	exam.facts.each do |fact|
+		#	  expect(page).to have_selector('div', text: fact.question)
+		#	end
+		#end
+	end
 end

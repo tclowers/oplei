@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe Exam do
 	let(:user) { FactoryGirl.create(:user) }
+	let(:fact) { FactoryGirl.create(:fact) }
 	before do
 		@exam = user.exams.create
 	end
@@ -14,7 +15,7 @@ describe Exam do
 
 	it { should be_valid }
 
-	#its(:facts) { should have(10).items}
+	#its(:facts) { should have_at_least(10).items}
 
 	describe "when user_id is not present" do
 		before { @exam.user_id = nil }
@@ -22,7 +23,6 @@ describe Exam do
 	end
 
 	describe "assigning facts" do
-		let(:fact) { FactoryGirl.create(:fact) }
 		before do
 			#@exam.save
 			@exam.assign!(fact)
