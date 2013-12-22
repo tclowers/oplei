@@ -1,9 +1,19 @@
 <% provide(:title, 'Exam ' + @exam.id.to_s) %>
 <%# provide(:title, @exam.id.to_s) %>
-<div>
-	ID: <%= @exam.id %>
+<div class="row headline">
+	<div class="span3" id="score">SCORE: 2000</div>
+	<div class="span6" id="message">Awesome!</div>
+	<div class="span3" id="lives">
+		<ul id="lifelist">
+			<li><i class='fa fa-male fa-3x'></i></li>
+			<li><i class='fa fa-male fa-3x'></i></li>
+			<li><i class='fa fa-male fa-3x'></i></li>
+			<li><i class='fa fa-male fa-3x deadman'></i></li>
+			<!--<li><img class="lives" src="redtielost.png"></li>-->
+		</ul>
+	</div>
 </div>
-<div>
+<!--<div>
 	User: <%= @exam.user.name %>
 </div>
 <div>
@@ -14,5 +24,5 @@
 		<div class="span3">Question: <%= fact.question %></div>
 		<div class="span9">Answer: <%= fact.answer %></div>
 	</div>
-<% end %>
+<% end %>-->
 

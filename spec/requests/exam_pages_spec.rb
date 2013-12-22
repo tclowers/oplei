@@ -66,8 +66,8 @@ describe "ExamPages" do
 			visit exam_path(exam)
 		end
 
-		it { should have_title('Exam') }
-		it { should have_content(user.name) }
+		#it { should have_title('Exam') }
+		it { should have_content('SCORE') }
 		#it { should have_content(exam.fact.question) }
 
 		#it "should list each fact" do

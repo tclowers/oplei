@@ -41,3 +41,24 @@ $(window).load(function() {
 	theWindow.resize(resizeBg).trigger("resize");
 
 });
+
+soundManager.setup({
+  url: '<%= asset_path('soundmanager2.swf') %>',
+  // optional: use 100% HTML5 mode where available
+  // preferFlash: false,
+
+  onready: function() {
+    var mySound = soundManager.createSound({
+      id: 'aSound',
+      url: '<%= asset_path 'DaveBrubeck-TakeFive.mp3' %>',
+      volume: 60
+    });
+    ////////////////////////////////////
+    //uncomment line below to actuall play sound
+    ////////////////////////////////////
+    //mySound.play();
+  },
+  ontimeout: function() {
+    // Hrmm, SM2 could not start. Missing SWF? Flash blocked? Show an error, etc.?
+  }
+});

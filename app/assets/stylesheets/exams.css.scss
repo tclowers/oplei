@@ -1,3 +1,42 @@
 // Place all the styles related to the Exams controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#score {
+	font-size: 3em;
+	font-family: 'Open Sans Condensed', sans-serif;
+	position: relative;
+	top: 15px;
+	color: gray;
+	text-align: center;
+}
+
+#lifelist li {
+	display: inline;
+	list-style-type: none;
+	/*padding-right: 20px*/
+
+}
+
+#lives {
+	text-align: right;
+	width: 28%;
+	color: black;
+}
+
+.deadman {
+	color: lightgray;
+}
+
+.headline {
+	/*background-color: lightblue;*/
+}
+
+#message {
+	text-align: center;
+	font-size: 3.8em;
+	font-family: 'Open Sans Condensed', sans-serif;
+	position: relative;
+	top: 15px;
+	color: gray;
+
+}
