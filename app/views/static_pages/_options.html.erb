@@ -1,5 +1,5 @@
 <div class="row homerow">
-	<div class="span3 offset2">
+	<div class="col-md-3 col-md-offset-2">
 		<div class="btn frontbutton">
 			<%= link_to users_path, class: 'frontlink', method: :get do %>
 				<div class='text-center fronticon'><i class='fa fa-group fa-2x'></i></div>
@@ -7,7 +7,7 @@
 			<% end %>
 		</div>
 	</div>
-	<div class="span3">
+	<div class="col-md-3">
 		<div class="btn frontbutton">
 			<%= link_to facts_path, class: 'frontlink', method: :get do %>
 				<div class='text-center fronticon'><i class='fa fa-book fa-2x'></i></div>
@@ -15,7 +15,7 @@
 			<% end %>
 		</div>
 	</div>
-	<div class="span3">
+	<div class="col-md-3">
 		<div class="btn frontbutton">
 			<%= link_to exams_path, class: 'frontlink', method: :get do %>
 				<div class='text-center fronticon'><i class='fa fa-question-circle fa-2x'></i></div>

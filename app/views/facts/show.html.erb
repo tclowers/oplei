@@ -9,11 +9,11 @@
 	Type: <%= @fact.question_type %>
 </div>
 <div class="row">
-	<div class="span4">
-		<%= link_to "Back to facts", facts_path, class: "btn btn-inverse btn-large" %>
+	<div class="col-md-4">
+		<%= link_to "Back to facts", facts_path, class: "btn btn-inverse btn-lg" %>
 		<% if current_user && current_user.admin? %>
 			<%= link_to "delete", @fact, method: :delete,
-			data: { confirm: "You sure?" }, class: "btn btn-danger btn-large" %>
+			data: { confirm: "You sure?" }, class: "btn btn-danger btn-lg" %>
 		<% end %>
 	</div>
 </div>

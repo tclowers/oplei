@@ -5,8 +5,12 @@ class ExamsController < ApplicationController
   end
 
   def show
-	@exam = Exam.find(params[:id])
-	@facts = @exam.facts
+  	@exam = Exam.find(params[:id])
+  	@facts = @exam.facts
+    @firstFact = @facts.first
+    @choices = Fact.where(question_type: @firstFact.question_type).order('RANDOM()').limit(3)
+    @choices.push(@firstFact)
+    @choices.shuffle!
   end
 
   def create

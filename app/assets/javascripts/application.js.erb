@@ -12,10 +12,11 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require bootstrap
+//= require twitter/bootstrap
 //= require turbolinks
 //= require soundmanager2
 //= require_tree .
+//= require jquery.ui.all
 
 /* Uncomment to use jQuery for background resize */
 $(window).load(function() {    
@@ -62,3 +63,31 @@ soundManager.setup({
     // Hrmm, SM2 could not start. Missing SWF? Flash blocked? Show an error, etc.?
   }
 });
+
+
+
+///////////////////////////////
+/// quiz game animations //////
+///////////////////////////////
+var options = {};
+var timeoutID;
+
+
+function reappear() {
+	$( "#life3" ).switchClass("liveman", "deadman");
+	//$( "#life3" ).toggleClass('.liveman', '.deadman');
+	$( "#life3" ).toggle( "pulsate", 300);
+};
+
+function changeScore(score) {
+	var current = $( "#scoreVal" ).text();
+	score += parseInt(current, 10);
+	$( "#scoreVal" ).text( score );
+};
+
+$(document).ready(function(){
+	$( "#messtext" ).effect( "puff", 600);
+	$( "#life3" ).toggle( "pulsate", options, 300, reappear() );
+	timeoutID = setTimeout( function() { changeScore(300) }, 800 );
+});
+

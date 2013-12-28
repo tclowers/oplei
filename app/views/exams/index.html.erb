@@ -1,7 +1,7 @@
 <% provide(:title, 'All exams') %>
 <h1>All exams</h1>
 
-<%= button_to "New exam", exams_path, class: "btn btn-inverse btn-large new_fact", method: :post %>
+<%= button_to "New exam", exams_path, class: "btn btn-inverse btn-lg new_fact", method: :post %>
 
 <%= will_paginate %>
 
@@ -24,6 +24,6 @@
 
 <%= will_paginate %>
 
-<%= link_to "Back", exams_path, class: "btn btn-inverse btn-large" %>
+<div><%= link_to "Back", exams_path, class: "btn btn-inverse btn-lg" %></div>
 
 

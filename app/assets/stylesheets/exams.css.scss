@@ -8,6 +8,7 @@
 	top: 15px;
 	color: gray;
 	text-align: center;
+	height: 90px;
 }
 
 #lifelist li {
@@ -19,24 +20,80 @@
 
 #lives {
 	text-align: right;
-	width: 28%;
-	color: black;
+	width: 25%;
+	/*background: purple;*/
 }
 
 .deadman {
 	color: lightgray;
+	margin-left: 6px;
+	margin-right: 6px;
 }
 
-.headline {
+.liveman {
+	color: black;
+	margin-left: 6px;
+	margin-right: 6px;
+}
+
+#headline {
 	/*background-color: lightblue;*/
+	/*height: 170px;*/
 }
 
 #message {
 	text-align: center;
-	font-size: 3.8em;
+	font-size: 3.4em;
 	font-family: 'Open Sans Condensed', sans-serif;
 	position: relative;
 	top: 15px;
 	color: gray;
+	width: 50%;
+	text-align: center;
+	/*background: lightblue;*/
+	/*height: 170px;*/
 
 }
+
+#messtext {
+	height: 60px;
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	/*top: 6px;*/
+	text-align: center;
+}
+
+#question {
+	position: relative;
+	margin-top: 24px;
+	width: 80%;
+	height: 100px;
+	/*clear: both;*/
+	color: dimgray;
+	font-family: 'Abel', sans-serif;
+	font-size: 4em;
+	text-align: center;
+	/*background: pink;*/
+}
+
+.btn-answer {
+	width: 100% !important;
+	min-height: 120px !important;
+	position: relative;
+	margin-top: 6px;
+	margin-bottom: 0;
+	margin-left: auto !important;
+	margin-right: auto !important;
+	font-size: 2.2em !important;
+	font-family: 'Abel', sans-serif;
+	white-space: normal !important;
+}
+
+.answers {
+	position: relative;
+	margin-top: 30px;
+	font-family: 'Abel', sans-serif;
+	/*background-color: lightblue;*/
+}
+

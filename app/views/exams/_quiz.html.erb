@@ -1,0 +1,13 @@
+<div class="row">
+	<div class="col-md-11 col-md-offset-1" id="question"><%= @firstFact.question %></div>
+</div>
+<div id="answers">
+	<div class="row">
+		<div class="col-md-6"><%= button_to @choices[0].answer, "#", class: "btn btn-default btn-answer", method: :post %></div>
+		<div class="col-md-6"><%= button_to @choices[1].answer, "#", class: "btn btn-default btn-answer", method: :post %></div>
+	</div>
+	<div class="row">
+		<div class="col-md-6"><%= button_to @choices[2].answer, "#", class: "btn btn-default btn-answer", method: :post %></div>
+		<div class="col-md-6"><%= button_to @choices[3].answer, "#", class: "btn btn-default btn-answer", method: :post %></div>
+	</div>
+</div>
