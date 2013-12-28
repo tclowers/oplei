@@ -7,9 +7,9 @@ class ExamsController < ApplicationController
   def show
   	@exam = Exam.find(params[:id])
   	@facts = @exam.facts
-    @firstFact = @facts.first
-    @choices = Fact.where(question_type: @firstFact.question_type).order('RANDOM()').limit(3)
-    @choices.push(@firstFact)
+    @currentFact = @facts.first
+    @choices = Fact.where(question_type: @currentFact.question_type).order('RANDOM()').limit(3)
+    @choices.push(@curentFact)
     @choices.shuffle!
   end
 
