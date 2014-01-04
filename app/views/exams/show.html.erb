@@ -1,32 +1,46 @@
 <% provide(:title, 'Exam ' + @exam.id.to_s) %>
 <%# provide(:title, @exam.id.to_s) %>
 <div class="row" id="headline">
-	<div class="col-md-3" id="score">SCORE: <span id="scoreVal">2000</span></div>
+	<div class="col-md-3" id="score">SCORE: <span id="scoreVal">00000</span></div>
 	<div class="col-md-5" id="message">
-		<div id="messtext">Awesome!</div>
+		<div id="messtext"></div>
 	</div>
 	<div class="col-md-4" id="lives">
 		<ul id="lifelist">
 			<li><i class='fa fa-male fa-3x liveman' id="life1"></i></li>
 			<li><i class='fa fa-male fa-3x liveman' id="life2"></i></li>
 			<li><i class='fa fa-male fa-3x liveman' id="life3"></i></li>
-			<li><i class='fa fa-male fa-3x deadman' id="life4"></i></li>
+			<li><i class='fa fa-male fa-3x liveman' id="life4"></i></li>
 			<!--<li><img class="lives" src="redtielost.png"></li>-->
 		</ul>
 	</div>
 </div>
-<%= render 'exams/quiz' %>
 
-<!--<div>
-	User: <%= @exam.user.name %>
+	<div id="result_data">
+		<%#= render 'exams/result_data' if Rails.env.development? %>
+	</div>
+
+<div id="quiz_area">
+	<%= render 'exams/quiz' %>
+</div>
+
+<%# @facts.each do |fact| %>
+	<%#= render 'exams/quiz', fact: fact %>
+<%# end %>
+
+<%#= render 'exams/finished' %>
+
+<!--
+<div>
+	User: <%#= @exam.user.name %>
 </div>
 <div>
 	<strong>Facts:</strong>
 </div>
-<% @facts.each do |fact| %>
+<%# @facts.each do |fact| %>
 	<div class="row">
-		<div class="col-md-3">Question: <%= fact.question %></div>
-		<div class="col-md-9">Answer: <%= fact.answer %></div>
+		<div class="col-md-3">Question: <%#= fact.question %></div>
+		<div class="col-md-9">Answer: <%#= fact.answer %></div>
 	</div>
-<% end %>-->
+<%# end %>-->
 

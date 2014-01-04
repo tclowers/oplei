@@ -1,0 +1,60 @@
+
+
+
+
+	<% @choices.each_slice(2) do |first_two| %>
+		<div class="row">
+		 <% first_two.each do |choice| %>
+		   <div class="col-md-6">
+				<%= form_for(@exam, method: :get) do |f| %>
+					<%= hidden_field_tag 'answer', choice.id %>
+					<%= hidden_field_tag 'fIndex', @facts.index(@currentFact) %>
+					<%= f.submit choice.answer, class: "btn btn-default btn-answer" %>
+				<% end %>
+		   </div>
+		 <% end %>
+		</div>
+	<% end %>
+
+
+
+
+
+
+
+
+
+		<div class="row">
+		<div class="col-md-6">
+			<%= form_for(@exam, method: :get) do |f| %>
+				<%#= hidden_field_tag 'fact', @currentFact %>
+				<%= hidden_field_tag 'answer', @choices[0].id %>
+				<%= hidden_field_tag 'fIndex', @facts.index(@currentFact) %>
+				<%= f.submit @choices[0].answer, class: "btn btn-default btn-answer" %>
+			<%#= button_to @choices[0].answer, exam_path(@exam), class: "btn btn-default btn-answer", method: :get %>
+			<% end %>
+		</div>
+		<div class="col-md-6">
+			<%= form_for(@exam, method: :get) do |f| %>
+				<%= hidden_field_tag 'answer', @choices[1].id %>
+				<%= hidden_field_tag 'fIndex', @facts.index(@currentFact) %>
+				<%= f.submit @choices[1].answer, class: "btn btn-default btn-answer" %>
+			<% end %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6">
+			<%= form_for(@exam, method: :get) do |f| %>
+				<%= hidden_field_tag 'answer', @choices[2].id %>
+				<%= hidden_field_tag 'fIndex', @facts.index(@currentFact) %>
+				<%= f.submit @choices[2].answer, class: "btn btn-default btn-answer" %>
+			<% end %>
+		</div>
+		<div class="col-md-6">
+			<%= form_for(@exam, method: :get) do |f| %>
+				<%= hidden_field_tag 'answer', @choices[3].id %>
+				<%= hidden_field_tag 'fIndex', @facts.index(@currentFact) %>
+				<%= f.submit @choices[3].answer, class: "btn btn-default btn-answer" %>
+			<% end %>
+		</div>
+	</div>

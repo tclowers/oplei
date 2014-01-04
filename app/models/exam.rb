@@ -17,7 +17,7 @@ class Exam < ActiveRecord::Base
 	private
 
 		def assign_facts
-			facts = Fact.all.sample(10)
+			facts = Fact.all.sample(15)
 			facts.each do |fact|
 				self.assign!(fact)
 			end

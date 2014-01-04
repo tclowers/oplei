@@ -1,7 +1,9 @@
 Oplei::Application.routes.draw do
   resources :users
   resources :facts
-  resources :exams
+  resources :exams do
+    get 'answer_problem', on: :member
+  end
   resources :sessions, only: [:new, :create, :destroy]
   root  'static_pages#home'
   match '/signup',  to: 'users#new',            via: 'get'

@@ -1,0 +1,26 @@
+//var slideNum = <%= @answered %>;
+//$( "#problem" + slideNum.toString() ).fadeOut(function() { $( "#problem" + (slideNum + 1).toString() ).fadeIn();});
+//$( "#problem0").fadeOut(function() { $( "#problem1").toString() ).fadeIn();});
+<% unless @answered == @facts.last %>
+	$("#quiz_area").html("<%= escape_javascript(render 'exams/quiz') %>");
+<% else %>
+	$("#quiz_area").html("<%= escape_javascript(render 'exams/finished') %>");
+<% end %>
+
+//$("#result_data").html("<%=escape_javascript(render 'exams/result_data') %>");
+
+///// result animations //////
+<% if @resultText == "correct" %>
+	//correct answer
+	var newMess = randomMessage("good"); //random correct result message
+	changeScore(320);
+	soundManager.play('correctSound');
+<% else %>
+	//incorrect answer
+	var newMess = randomMessage("bad") //random result message
+	changeScore(-320);
+	kill(<%= @lives + 1 %>);
+	soundManager.play('incorrectSound');
+<% end %>
+//Show message
+$( "#messtext" ).text( newMess ).show().effect( "puff", 600);

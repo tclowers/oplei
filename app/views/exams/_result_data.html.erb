@@ -1,0 +1,3 @@
+<% if @resultText %>
+Result: <%= @resultText %> Answer: <%= params[:answer] %> AnsweredID: <%= @answered.id %> fIndex: <%= @facts.index(@currentFact) %> endOfArray: <%= @endOfArray %> numEnd: <%= @facts.last.id %> lives: <%= @lives %>
+<% end %>

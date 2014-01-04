@@ -1,13 +1,24 @@
-<div class="row">
-	<div class="col-md-11 col-md-offset-1" id="question"><%= @currentFact.question %></div>
-</div>
-<div id="answers">
+<div id="problem<%= @facts.index(@currentFact) %>" class="problems">
 	<div class="row">
-		<div class="col-md-6"><%= button_to @choices[0].answer, "#", class: "btn btn-default btn-answer", method: :post %></div>
-		<div class="col-md-6"><%= button_to @choices[1].answer, "#", class: "btn btn-default btn-answer", method: :post %></div>
+		<div class="col-md-11 col-md-offset-1" id="question"><%= @currentFact.question %></div>
 	</div>
-	<div class="row">
-		<div class="col-md-6"><%= button_to @choices[2].answer, "#", class: "btn btn-default btn-answer", method: :post %></div>
-		<div class="col-md-6"><%= button_to @choices[3].answer, "#", class: "btn btn-default btn-answer", method: :post %></div>
+	<div id="answers">
+		<%# cOptions = @choiceArray[fact.id] %>
+		<% @choices.each_slice(2) do |first_two| %>
+			<div class="row">
+			 <% first_two.each do |choice| %>
+			   <div class="col-md-6">
+					<%#= button_to choice.answer, answer_problem_exam_path, method: 'get' %>
+					<%#= form_for(@exam, action: answer_problem_exam_path, method: 'get', remote: true) do |f| %>
+					<%= form_for(@exam, remote: true) do |f| %>
+						<%= hidden_field_tag 'answer', choice.id %>
+						<%= hidden_field_tag 'fIndex', @facts.index(@currentFact) %>
+						<%= f.submit choice.answer, class: "btn btn-default btn-answer", id: "answerButton" %>
+					<% end %>
+					<%#= button_to choice.answer, '#', class: "btn btn-default btn-answer", :id => "answerButton", :onclick => "changeSlide(#{@facts.index(fact)})", method: :get %>
+			   </div>
+			 <% end %>
+			</div>
+		<% end %>
 	</div>
 </div>

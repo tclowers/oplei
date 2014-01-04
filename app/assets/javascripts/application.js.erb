@@ -49,15 +49,31 @@ soundManager.setup({
   // preferFlash: false,
 
   onready: function() {
+  	 //background music
     var mySound = soundManager.createSound({
       id: 'aSound',
       url: '<%= asset_path 'DaveBrubeck-TakeFive.mp3' %>',
-      volume: 60
+      volume: 24
     });
+
+    // sound for correct answer
+    var correctSound = soundManager.createSound({
+      id: 'correctSound',
+      url: '<%= asset_path 'Jump6.wav' %>',
+      volume: 24
+    });
+
+    // sound for incorrect answer
+    var incorrectSound = soundManager.createSound({
+      id: 'incorrectSound',
+      url: '<%= asset_path 'Powerup17.wav' %>',
+      volume: 30
+    });
+
     ////////////////////////////////////
-    //uncomment line below to actuall play sound
+    //uncomment to play background music
     ////////////////////////////////////
-    //mySound.play();
+    mySound.play();
   },
   ontimeout: function() {
     // Hrmm, SM2 could not start. Missing SWF? Flash blocked? Show an error, etc.?
@@ -73,21 +89,69 @@ var options = {};
 var timeoutID;
 
 
-function reappear() {
-	$( "#life3" ).switchClass("liveman", "deadman");
+function kill(life) {
+	$( "#life" + life ).switchClass("liveman", "deadman");
 	//$( "#life3" ).toggleClass('.liveman', '.deadman');
-	$( "#life3" ).toggle( "pulsate", 300);
+	$( "#life" + life).effect( "pulsate", 600);
+	//$( "#life" + life).toggle( "pulsate", 300);
 };
+
+function pad(num, size) {
+    var s = num+"";
+    while (s.length < size) s = "0" + s;
+    return s;
+}
 
 function changeScore(score) {
 	var current = $( "#scoreVal" ).text();
-	score += parseInt(current, 10);
-	$( "#scoreVal" ).text( score );
+	var currentVal = parseInt(current,10);
+	if (currentVal >= 0 && score > 0) {
+		score += currentVal;
+	} else if (currentVal > 0) {
+		score += currentVal;
+	} else {
+		score = 0;
+	}
+	pad_score = pad(score, 5)
+	$( "#scoreVal" ).text( pad_score );
 };
 
+function randomMessage(outcome) {
+	if (outcome == "good") {
+		var messages = ['Awesome!', 'Nice!', 'Great!'];
+	} else {
+		var messages = ['Oh No!', 'Too Bad!', 'Keep Trying!'];
+	}
+	var newMess = messages[Math.floor(Math.random() * messages.length)];
+	return newMess;
+};
+
+//on Show view pageload
 $(document).ready(function(){
-	$( "#messtext" ).effect( "puff", 600);
-	$( "#life3" ).toggle( "pulsate", options, 300, reappear() );
-	timeoutID = setTimeout( function() { changeScore(300) }, 800 );
+	//$( "#life3" ).toggle( "pulsate", options, 300, kill(3) );
+	//kill(4);
+	//timeoutID = setTimeout( function() { changeScore(300) }, 800 );
+	$( "#problem0" ).fadeIn();
 });
 
+
+///////////////////////
+/// answer button /////
+///////////////////////
+
+function changeSlide(slideNum) {
+	$( "#problem" + slideNum.toString() ).fadeOut(
+	 function() { $( "#problem" + (slideNum + 1).toString() ).fadeIn();});
+	//event.preventDefault(); // Prevent link from following its href
+	//$( "#problem" + slideNum.toString() ).toggleClass("visible invisible", 100)
+	
+	//$( "#problem" + (slideNum + 1).toString() ).toggleClass("invisible visible", 100)
+};
+
+
+//$(document).ready(function() {
+//	$('#answerButton').click(function (event) {
+//	  alert('Hooray!');
+//	  event.preventDefault(); // Prevent link from following its href
+//	});
+//});
