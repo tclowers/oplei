@@ -73,7 +73,10 @@ soundManager.setup({
     ////////////////////////////////////
     //uncomment to play background music
     ////////////////////////////////////
+   //var scoreText = $( "#scoreVal" ).text();;
+	if ( $( "#scoreVal" ).text() == "00000" ) {
     //mySound.play();
+   }
   },
   ontimeout: function() {
     // Hrmm, SM2 could not start. Missing SWF? Flash blocked? Show an error, etc.?

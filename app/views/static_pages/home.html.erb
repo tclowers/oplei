@@ -1,11 +1,26 @@
 <% provide(:title, 'Home') %>
-<h1>Oplei Product Trainer</h1>
 <!--<p>This is the home page.</p>-->
 <% if signed_in? %>
 	<%= render 'static_pages/options' %>
 	<%#= button_to "New Fact", new_fact_path, class: "btn btn-inverse btn-large", method: :get %>
 	<%#= button_to "View Facts", facts_path, class: "btn btn-inverse btn-large", method: :get %>
 <% else %>
-	<%= render 'static_pages/signup' %>
+<div class="jumbotron">
+  <h1>American companies spent $15bn on sales training last year.</h1>
+  <p class="text-center">Did you get your money's worth?</p>
+  <div class="row push">
+  		<div class="col-md-2 col-md-offset-4">
+	  		<%= link_to signup_path, class: 'btn btn-lg btn-primary', role: "button", method: :get do %>
+		   	<i class='fa fa-male'></i> Sign up
+			<% end %>
+		</div>
+		<div class="col-md-2">
+	   	<%= link_to signin_path, class: 'btn btn-lg btn-inverse', role: "button", method: :get do %>
+	  		<i class='fa fa-sign-in'></i> Sign in
+			<% end %>
+		</div>
+	</div>
+</div>
+	<%#= render 'static_pages/signup' %>
 	<%#= button_to "Sign up", signup_path, class: "btn btn-inverse btn-large", method: :get %>
 <% end %>

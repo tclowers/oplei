@@ -22,6 +22,8 @@ class ExamsController < ApplicationController
     #@currentFact = @facts[@answered.id + 1]
     @currentFact = @facts[params[:fIndex].to_i + 1]
 
+    
+
     if @currentFact == @facts.last
       @endOfArray = 'yes'      
     else
@@ -37,6 +39,8 @@ class ExamsController < ApplicationController
                 order('RANDOM()').limit(3)
       @choices.push(@currentFact)
       @choices.shuffle!
+
+      @question_size = set_question_size( @currentFact.question.length )
     end
 
 
@@ -64,6 +68,8 @@ class ExamsController < ApplicationController
     session[:lives] = 4
 
     @currentFact = @facts[0]
+
+    @question_size = set_question_size( @currentFact.question.length )
 
     @choices = Fact.where(question_type: @currentFact.question_type).where.not(id: @currentFact.id).
                 order('RANDOM()').limit(3)
@@ -125,5 +131,16 @@ class ExamsController < ApplicationController
   def set_exam
     @exam = Exam.find(params[:id])
     @facts = @exam.facts
+  end
+
+  def set_question_size(chars)
+      if chars <= 20
+        question_size = "small-question"
+      elsif chars > 20 && chars <= 38
+        question_size = "med-question"
+      elsif chars > 38
+        question_size = "big-question"
+      end
+      return question_size
   end
 end
