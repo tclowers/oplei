@@ -110,10 +110,13 @@ class ExamsController < ApplicationController
 
   def create
   	@exam = current_user.exams.build()
-  	@exam.save
+  	if @exam.save
   	#flash[:success] = "Exam created."
-    redirect_to exam_path(@exam)
+      redirect_to exam_path(@exam)
   	#redirect_to exams_url
+    else
+      redirect_to 'exams/create_failed'
+    end
   end
 
   def destroy
