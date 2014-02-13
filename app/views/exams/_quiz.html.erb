@@ -2,25 +2,23 @@
 	<div class="row">
 		<div class="col-md-12 <%= @question_size %>" id="question"><%= @currentFact.question %></div>
 	</div>
+	<% @facts.each do |fact| %>
+	<%#= "<div>fact_id: #{fact.id} - fact_index: #{@facts.index(fact)}</div>" %>
+	<% end %>
 	<div id="answers">
 		<%# cOptions = @choiceArray[fact.id] %>
 		<% @choices.each_slice(2) do |first_two| %>
 			<div class="row">
 			 <% first_two.each do |choice| %>
-				 <%# if choice.answer.length <= 30 %>
-				 	<%# answer_size = 'small-answer' %>
-				 <%# elsif choice.answer.length > 30 && choice.answer.length <= 48 %>
-				 	<%# answer_size = 'med-answer' %>
-				 <%# elsif choice.answer.length > 48 %>
-				 	<%# answer_size = 'big-answer' %>
-				 <%# end %>
 			   <div class="col-md-6">
 					<%#= button_to choice.answer, answer_problem_exam_path, method: 'get' %>
 					<%#= form_for(@exam, action: answer_problem_exam_path, method: 'get', remote: true) do |f| %>
-					<%= form_for(@exam, remote: true) do |f| %>
+					<%= form_for(@exam, remote: true, namespace: choice.id) do |f| %>
 						<%= hidden_field_tag 'answer', choice.id %>
 						<%= hidden_field_tag 'fIndex', @facts.index(@currentFact) %>
-						<%= f.submit choice.answer, class: "btn btn-default btn-answer #{answer_size(choice.answer)} ", id: "answerButton" %>
+						<% fact_index = @facts.index(@currentFact) %>
+						<%= f.submit "#{choice.answer}", class: "btn btn-default btn-answer #{answer_size(choice.answer)} ", id: "#{choice.id}answerButton" %>
+						<%#= f.submit "#{choice.answer} - #{@currentFact.id} - #{choice.id} - answered: #{@facts[fact_index].id} - fIndex #{fact_index}", class: "btn btn-default btn-answer #{answer_size(choice.answer)} ", id: "#{choice.id}answerButton" %>
 						<%#= f.submit choice.answer, class: "btn btn-default btn-answer #{answer_size} ", id: "answerButton" %>
 					<% end %>
 					<%#= button_to choice.answer, '#', class: "btn btn-default btn-answer", :id => "answerButton", :onclick => "changeSlide(#{@facts.index(fact)})", method: :get %>

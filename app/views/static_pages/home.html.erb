@@ -21,6 +21,17 @@
 		</div>
 	</div>
 </div>
+<div id="demo_offer" class="row">
+	<div class="col-md-6 col-md-offset-1">
+		<p class="h1 text-center">Try a sample quiz right now to see how it all works:</p>
+	</div>
+	<div class="col-md-2">
+		<br />
+		<%= link_to exam_path(Exam.first), class: 'btn btn-lg btn-success', role: "button", method: :get do %>
+			<i class='fa fa-gamepad'></i> Demo Quiz
+		<% end %>
+	</div>
+</div>
 	<%#= render 'static_pages/signup' %>
 	<%#= button_to "Sign up", signup_path, class: "btn btn-inverse btn-large", method: :get %>
 <% end %>

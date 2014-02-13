@@ -8,15 +8,18 @@ class ExamsController < ApplicationController
   def update
     @lives = session[:lives]
     @answered = @facts[params[:fIndex].to_i]
+    problem = @exam.problems.find_by(fact_id: @answered)
     if @answered.id == params[:answer].to_i
       #answered correctly
       @resultText = "correct"
+      problem.correct = true
     else
       #incorrect answer
       @resultText = "incorrect"
       unless @lives == 0
         @lives = session[:lives] -= 1
       end
+      problem.correct = false
     end
 
     #@currentFact = @facts[@answered.id + 1]
@@ -45,7 +48,11 @@ class ExamsController < ApplicationController
 
 
     respond_to do |format|
-      format.js
+      if problem.save
+        format.js
+      else
+        render 'exams/create_failed'
+      end
     end
 =begin
     @facts = @exam.facts

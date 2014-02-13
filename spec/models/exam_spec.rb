@@ -32,4 +32,7 @@ describe Exam do
 		its(:facts) { should include(fact) }
 	end
 
+	describe "checking answers" do
+	end
+
 end

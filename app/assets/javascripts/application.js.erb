@@ -129,6 +129,18 @@ function randomMessage(outcome) {
 	return newMess;
 };
 
+function muteAll() {
+	soundManager.mute('aSound');
+	soundManager.mute('correctSound');
+	soundManager.mute('incorrectSound');
+}
+
+function unMuteAll() {
+	soundManager.unmute('aSound');
+	soundManager.unmute('correctSound');
+	soundManager.unmute('incorrectSound');
+}
+
 //on Show view pageload
 $(document).ready(function(){
 	//$( "#life3" ).toggle( "pulsate", options, 300, kill(3) );
