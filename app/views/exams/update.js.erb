@@ -21,6 +21,9 @@
 	changeScore(-320);
 	kill(<%= @lives + 1 %>);
 	soundManager.play('incorrectSound');
+	<% if @lives == 0 %>
+		$("#quiz_area").html("<%= escape_javascript(render 'exams/dead') %>");
+	<% end %>
 <% end %>
 //Show message
 $( "#messtext" ).text( newMess ).show().effect( "puff", 600);

@@ -62,8 +62,17 @@ describe "ExamPages" do
 	describe "show exam page" do
 		#let(:exam)  { FactoryGirl.create(:exam) }
 		before do
-			exam = user.exams.create
-			visit exam_path(exam)
+			puts "user: " + user.name
+			@exam = user.exams.create
+
+			@facts = @exam.facts.to_a
+			@all_facts = Fact.all
+			puts "all facts: " + @all_facts.length.to_s
+			puts "num facts: " + @facts.length.to_s
+			@facts.each do |fact|
+				raise "fact: " + fact
+			end
+			visit exam_path(@exam)
 		end
 
 		#it { should have_title('Exam') }

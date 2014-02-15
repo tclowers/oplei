@@ -10,9 +10,10 @@ describe Problem do
 
 	it { should be_valid }
 
-	describe "fact methods" do
+	describe "problem methods" do
 		it { should respond_to(:exam) }
 		it { should respond_to(:fact) }
+		it { should respond_to(:correct) }
 		its(:exam) { should eq exam }
 		its(:fact) { should eq fact }
 	end
@@ -26,4 +27,8 @@ describe Problem do
 		before { problem.fact_id = nil }
 		it { should_not be_valid }
 	end
+
+	#describe "answering a question" do
+	#	problem.answer!("correct").should 
+	#end
 end

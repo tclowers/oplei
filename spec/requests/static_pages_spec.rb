@@ -8,7 +8,7 @@ describe "Static pages" do
 
 	 it "should have the content 'Oplei'" do
 	   visit root_path
-	   expect(page).to have_content('Oplei')
+	   expect(page).to have_content('OPLEI')
 	 end
 
 	 it "should have the title 'Home'" do
