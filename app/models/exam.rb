@@ -14,6 +14,13 @@ class Exam < ActiveRecord::Base
 		problems.create!(fact_id: fact.id)
 	end
 
+	def self.get_choices(fact)
+		choices = Fact.where(question_type: fact.question_type).where.not(id: fact.id).order('RANDOM()').limit(3)
+      choices.push(fact)
+      choices.shuffle!
+      return choices
+	end
+
 	private
 
 		def assign_facts

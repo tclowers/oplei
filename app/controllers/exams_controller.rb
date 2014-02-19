@@ -38,10 +38,11 @@ class ExamsController < ApplicationController
     end
 
     unless @answered == @facts.last
-      @choices = Fact.where(question_type: @currentFact.question_type).where.not(id: @currentFact.id).
-                order('RANDOM()').limit(3)
-      @choices.push(@currentFact)
-      @choices.shuffle!
+      @choices = Exam.get_choices(@currentFact)
+      #@choices = Fact.where(question_type: @currentFact.question_type).where.not(id: @currentFact.id).
+      #          order('RANDOM()').limit(3)
+      #@choices.push(@currentFact)
+      #@choices.shuffle!
 
       @question_size = set_question_size( @currentFact.question.length )
     end
@@ -54,21 +55,6 @@ class ExamsController < ApplicationController
         render 'exams/create_failed'
       end
     end
-=begin
-    @facts = @exam.facts
-    @answered = @facts[params[:fIndex].to_i]
-    if @answered.id == params[:answer].to_i
-      #answered correctly
-      @resultText = "Correct!"
-    else
-      #incorrect answer
-      @resultText = "Incorrect :("
-    end
-
-    respond_to do |format|
-      format.js
-    end
-=end
   end
 
   def show
@@ -78,10 +64,14 @@ class ExamsController < ApplicationController
 
     @question_size = set_question_size( @currentFact.question.length )
 
-    @choices = Fact.where(question_type: @currentFact.question_type).where.not(id: @currentFact.id).
-                order('RANDOM()').limit(3)
-    @choices.push(@currentFact)
-    @choices.shuffle!
+    @choices = Exam.get_choices(@currentFact)
+
+    #@choices = Fact.where(question_type: @currentFact.question_type).where.not(id: @currentFact.id).
+     #           order('RANDOM()').limit(3)
+    #@choices.push(@currentFact)
+    #@choices.shuffle!
+
+
 =begin
     if params[:fIndex]
       @answered = @facts[params[:fIndex].to_i]
